@@ -1,0 +1,35 @@
+
+body{
+    margin: 0;
+    background-color: white;
+    
+}
+
+.header{
+    background-color:#000000;
+    padding-bottom: 0.5rem;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    
+    /* width: 100vh; */
+}
+
+.logo{
+    height: 3.5rem;
+    padding-left: 3rem;;
+    z-index: 1;
+    position: absolute;
+    margin-top: -5px;
+}
+.header-text{
+    font-family: sans-serif;
+    color: white;
+    display: block;
+    font-size: 1.6rem;
+    text-align: center;
+    padding-top: 0.7rem;
+    padding-bottom: 0 rem;
+    
+}

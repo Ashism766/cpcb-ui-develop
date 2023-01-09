@@ -1,0 +1,46 @@
+.date-picker{
+    text-align: left;
+    display: inline-block;
+    margin-top: 3rem;
+}
+.date-picker input{
+    height: 5rem;
+    width: 20rem;
+    font-size: 1.4rem;
+    border: none;
+    background: #F2F5FB;;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-radius: 8px;
+}
+.date-picker h1{
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #6F6F6F;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.date-picker input[type="date"]:placeholder{
+    padding-left: 2rem;
+}
+
+.Date-contain{
+    margin-left: 10rem;
+    margin-top: 3rem;
+    background-color: aquamarine;
+    position: relative;
+    margin-right: 6rem;
+}
+
+.Date-contain .f-date{
+    display: inline-block;
+    position:absolute;
+    left: 4rem;
+
+}
+.Date-contain .t-date{
+    display: inline-block;
+    position: absolute;
+    right: 6rem;
+}

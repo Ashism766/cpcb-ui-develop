@@ -1,0 +1,63 @@
+body{
+    color: black;
+}
+.squar{
+    background-color:white;
+    display: inline-block;
+    height: 16rem;
+    width: 13rem;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+.squar .small-circle{
+    display: inline-block;
+    position: absolute;
+    background-color: white;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;;
+    right: 1rem;
+    top:1rem
+
+}
+.squar .icon{
+    display: inline-block;
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: 3.3rem;
+    left: 3.5rem;
+    background-color: aliceblue;
+}
+
+/* .squar.icon:hover{
+    
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    background-color: black;
+} */
+.squar .text{
+    color: black;
+    font-weight: 540;
+    font-size: 1.1rem;
+    font-family: sans-serif;
+    display: inline-block;
+    position: absolute;
+    bottom: 2rem;
+    right: 1rem;
+    left: 1rem;
+    text-align: center;
+    /* padding-right: 2rem; */
+}
+.squar:hover{
+    background-color: #323B4B;
+    /* border: 3px solid #323B4B; */
+    transition: 0.3s;
+    
+}

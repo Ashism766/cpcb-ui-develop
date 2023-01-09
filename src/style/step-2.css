@@ -1,0 +1,43 @@
+.middle-part{
+    background-color: aqua;
+    position: relative;
+    margin-left: 4rem;
+}
+.select{
+    
+    position: absolute;
+    
+    left: 26rem;
+    top: 1.5rem;
+}
+.select .device-type{
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 7px 20px 7px 20px;
+    background-color:  #E9E9E9;;
+    margin-right: 2rem;
+    border-radius: 5px;
+
+}
+
+.select .device-type:hover{
+    background-color:#F2FFA0;
+    transition: 0.3s;
+    cursor: pointer;
+
+}
+
+.card-contain{
+    /* display: inline-block; */
+    position: absolute;
+    top: 6rem;
+    left: 12.3rem;
+    margin-right: 8rem;
+    background-color: #F2F5FB;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 20px;
+    
+    
+}
