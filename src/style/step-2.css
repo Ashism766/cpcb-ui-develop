@@ -1,3 +1,21 @@
+.device{
+    display: inline-block;
+    height: 4.4rem;
+    width: 4.4rem;
+    background-color: #878787;
+    border-radius: 8px;
+    margin: 10px 20px 10px 20px;
+}
+.device .deviceId{
+    
+    position: relative;
+    top: 1.4rem;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 550;
+
+}
+
 .middle-part{
     background-color: aqua;
     position: relative;
