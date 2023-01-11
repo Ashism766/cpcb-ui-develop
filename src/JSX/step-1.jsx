@@ -2,16 +2,34 @@ import React from "react";
 import Header from "./header";
 import Glayer from "./label";
 import "../style/step-1.css";
-import Middle from "./data-source-card";
+// import Middle from "./data-source-card";
+
+
+
+const Middle = (props) =>{
+
+    const [cl, isClk] = React.useState(false);
+    const Cli = () =>{
+        isClk(!cl);
+        console.log(cl)
+    }
+
+ 
+    return(<div style={cl?{"backgroundColor":"#323B4B"}:{"backgroundClip":"#fff"}} onClick={Cli}  className="squar">
+            
+            <div style={cl?{"backgroundColor":"#3EFEA8"}:{"backgroundClip":"#fff"}} className="small-circle"></div>
+            <div className="icon">
+                <img  src={require("../image/"+props.img)} alt={"It's a pic of key"}/>
+            </div>
+            <div style={cl?{"color":"white"}:{"color":"black"}} className="text">{props.text||"Ground Station Data"}</div>
+            
+    </div>)
+}
+
 
 const Step_1 = ()=>{
     
-    // const [count, setCound] = React.useState(0);
 
-    // const helper = () =>{
-    //     setCound(count+1);
-    //     console.log(count);
-    // }
 
     return <div>
         
@@ -30,7 +48,7 @@ const Step_1 = ()=>{
 
         </div>
            
-        
+         
     </div>
 }
 

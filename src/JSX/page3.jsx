@@ -6,7 +6,7 @@ const DatePick = (props) =>{
 
     return (<div className="date-picker">
         <h1>{props.text}</h1>
-        <input type="date" onChange={e=>setDate(e.target.value)}/>
+        <input type="datetime-local" onChange={e=>setDate(e.target.value)}/>
 
         {/* <input type={"date"}/> */}
 

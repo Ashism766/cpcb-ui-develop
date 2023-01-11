@@ -1,58 +1,86 @@
 import React from "react";
 import Header from "./header";
 import Glayer from "./label";
-import DeviceImage from "./page2";
+// import DeviceImage from "./page2";
 import "../style/step-2.css";
-const step_2 = ()=>{
+
+
+
+const DeviceImage = (props)=>
+{
+    return (
+        <div style={{'backgroundColor':props.bcolor}} className={`device ${props.mobility} `}>
+            <div style={{'color':props.bcolor === "#323B4B"?"white":"black"}} className="deviceId">
+                {props.deivceId || "M1"}
+            </div>
+            
+        </div>
+   )
+}
+
+
+let Data = [];
+let Mobility = ["mobile", "stationary"]
+for (var i = 1; i <= 30; i++)
+{
+    var ran = Math.floor(Math.random()*2);
+
+    
+    var temp = {
+        id:"M"+i,
+        type: Mobility[ran]
+    }
+
+    Data.push(temp);
+
+}
+
+
+
+const Step_2 = ()=>{
+
+    const [state, setState] = React.useState(false);
+    const [clickAll, setCA] = React.useState(false);
+
+    const [mstate, setMstate] = React.useState(false);
+    const [clickAllm, setCAM] = React.useState(false);
+    
+    const [sState, setSstate] = React.useState(false);
+    const [clickAlls, setCAS] = React.useState(false);
+    
+
     return(<div>
         <Header/>
         <Glayer step = "Step 2" dis = ""prevPage="step-1" 
         nextPage="step-3" text ="Select the Data Devices you need"/>
+        '
+        
         <div className="middle-part">
 
             <div className="select">
-                <div className="device-type">
+                <div style={{"backgroundColor":clickAll&&!(clickAllm || clickAlls)?"#F2FFA0":""}} onMouseOver={()=>{setState(true)}} onMouseOut={()=>{setState(false)}} onClick={()=>{ if(!clickAll){setCAM(false); setCAS(false)} setCA(!clickAll)}} className="device-type all-d">
                     Select all devices
                 </div>
-                <div className="device-type">
+                <div style={{"backgroundColor":clickAllm?"#F2FFA0":""}} onClick={()=>{if(!clickAllm){setCA(false); setCAS(false)}setCAM(!clickAllm); ;}} onMouseOver={()=>{setMstate(true)}} onMouseOut={()=>{setMstate(false)}} className="device-type mobile-d">
                     Select all Mobile 
                 </div>
-                <div className="device-type">
+                <div style={{"backgroundColor":clickAlls?"#F2FFA0":""}} onClick={()=>{if(!clickAlls){setCA(false); setCAM(false)} setCAS(!clickAlls)}} onMouseOver={()=>{setSstate(true)}} onMouseOut={()=>{setSstate(false)}} className="device-type stationary-d">
                     Select all Stationary
                 </div>
             </div>
 
             <div className="card-contain">
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
-                <DeviceImage/>
+
+              
+                {
+                    mstate || clickAllm? Data.map((user) =>(<DeviceImage bcolor={user.type ==="mobile"?"#323B4B":"#878787"} deivceId = {user.id} mobility = {user.type}/>)): 
+                    clickAlls || sState?  Data.map((user) =>(<DeviceImage bcolor={user.type ==="stationary"?"#323B4B":"#878787"} deivceId = {user.id} mobility = {user.type} />)):
+                    state|| clickAll? Data.map((user) =>(<DeviceImage bcolor={"#323B4B"} deivceId={user.id} mobility={user.type}/>)):
+                    Data.map((user)=>(<DeviceImage bcolor = {"#878787"} deivceId ={user.id} mobility = {user.type}/>))
+                    
+                    
+                }
+               
                 
             </div>
             
@@ -61,4 +89,4 @@ const step_2 = ()=>{
     </div>)
 }
 
-export default step_2;
+export default Step_2;
