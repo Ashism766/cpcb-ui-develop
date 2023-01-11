@@ -29,6 +29,7 @@ body{
     overflow: hidden;
     margin-left: 4rem;
     margin-right: 4rem;
+    background-color: white;;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     cursor: pointer;
 }
@@ -83,6 +84,9 @@ body{
     
 }
 
+.squar:hover .text{
+    color: white;
+}
 .squar .icon img{
     width: 60px;
     position: relative;
@@ -93,4 +97,8 @@ body{
     width: 75px;
     left: .8rem;
     top: .8rem;
+}
+
+.main-body .dis {
+    display: inline-block;
 }
