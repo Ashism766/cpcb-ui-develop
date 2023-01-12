@@ -2,17 +2,17 @@ import React from "react";
 import Header from "./header";
 import Glayer from "./label";
 import "../style/step-4.css";
-import { useNavigate, createSearchParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Final = ()=>{
 
     const navigate = useNavigate();
-    const [searchParams] = useSearchParams();
 
-    let pData = JSON.parse(searchParams.get('data'));
+    let Location = useLocation();
+
+    let pData = JSON.parse(Location.state['data']);
+
     console.log(pData);
-
-
 
     const [Json, setJson] = React.useState(false);
     const [Csv, setCsv] = React.useState(false);
@@ -25,11 +25,12 @@ const Final = ()=>{
         {
             pData["fileType"] = Json?"json":"csv";
 
-            navigate({
-                pathname:"/step-5",
-                search: createSearchParams({
-                    data: JSON.stringify(pData)
-                }).toString()
+            navigate("/step-5",
+                {
+                state:
+                    {
+                        data: JSON.stringify(pData)
+                    }
             });
         }
         else{

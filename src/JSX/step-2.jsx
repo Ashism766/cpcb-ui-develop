@@ -3,7 +3,7 @@ import Header from "./header";
 import Glayer from "./label";
 // import DeviceImage from "./page2";
 import "../style/step-2.css";
-import { createSearchParams, useNavigate, useSearchParams } from "react-router-dom";
+import { createSearchParams, useNavigate, useLocation} from "react-router-dom";
 
 
 const DeviceImage = (props)=>
@@ -39,10 +39,16 @@ for (var i = 1; i <= 30; i++)
 
 const Step_2 = ()=>{
 
-    const [searchParams] = useSearchParams();
+    
     const navigate = useNavigate();
 
-    let data = JSON.parse(searchParams.get("data"));
+    const Location = useLocation();
+
+    console.log(Location.state['data'])
+    
+
+
+    let data = JSON.parse(Location.state['data']);
 
     console.log(data);
 
@@ -53,35 +59,43 @@ const Step_2 = ()=>{
             data["deviceType"] = "All";
             data["deviceData"] = Data;
 
-            navigate({
-                pathname: "/step-3",
-                search: createSearchParams({
+            navigate(
+               "/step-3",
+                {
+                state: {
                     data: JSON.stringify(data)
-                }).toString()
+                }
             });
         }
         else if(clickAllm){
             data["deviceType"] = "mobile";
             data["deviceData"] = Data.filter((temp)=>{return temp.type === "mobile"});
 
-            navigate({
-                pathname: "/step-3",
-                search: createSearchParams({
-                    data: JSON.stringify(data)
-                }).toString()
-            });
+            navigate(
+                "/step-3",
+                 {
+                 state: {
+                     data: JSON.stringify(data)
+                 }
+             });
         }
         else if(clickAlls)
         {
             data["deviceType"] = "stationary"
             data["deviceData"] = Data.filter((temp)=>{return temp.type === "stationary"});
 
-            navigate({
-                pathname: "/step-3",
-                search: createSearchParams({
-                    data: JSON.stringify(data)
-                }).toString()
-            });
+            navigate(
+                {
+                    pathname: "/step-3"
+
+                }
+               ,
+                 {
+                 state: {
+                     data: JSON.stringify(data)
+                 }
+             }
+             );
         }
         else 
         {

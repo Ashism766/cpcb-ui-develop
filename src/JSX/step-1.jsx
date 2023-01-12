@@ -3,7 +3,7 @@ import Header from "./header";
 import Glayer from "./label";
 import "../style/step-1.css";
 // import Middle from "./data-source-card";
-import { createSearchParams, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate , Navigate} from "react-router-dom";
 
 
 
@@ -36,15 +36,23 @@ const Step_1 = ()=>{
 
     const Front = ()=>
     {
+        
 
-
+        let obj = JSON.stringify(Data);
         if(c1){
-            navigate( {
-                pathname: "/step-2",
-                search:createSearchParams({
-                    data: JSON.stringify(Data)
-                }).toString()
+            navigate(
+                "/step-2",
+ 
+             {
+                
+                state: {
+                    data:obj
+                }
+ 
             });
+           
+
+
         }
         else{
             alert("Please Select Device Data option to go ")
