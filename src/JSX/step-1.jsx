@@ -3,6 +3,7 @@ import Header from "./header";
 import Glayer from "./label";
 import "../style/step-1.css";
 // import Middle from "./data-source-card";
+import { createSearchParams, useNavigate } from "react-router-dom";
 
 
 
@@ -27,11 +28,37 @@ const Step_1 = ()=>{
     const [c3, setC3] = React.useState(false);
 
 
+    const navigate = useNavigate();
+    
+    let Data = {
+        source: "Device Data"
+    }
+
+    const Front = ()=>
+    {
+
+
+        if(c1){
+            navigate( {
+                pathname: "/step-2",
+                search:createSearchParams({
+                    data: JSON.stringify(Data)
+                }).toString()
+            });
+        }
+        else{
+            alert("Please Select Device Data option to go ")
+        }
+
+        
+    };
+
+
     return <div>
         
         <Header/>
         <Glayer step = "Step 1" dis = "none" prevPage ="" 
-            nextPage="step-2" text ="Select a Data Source"/>
+            nextPage="step-2" frontFunc={Front}  text ="Select a Data Source"/>
 
 
         <div className="body-contain">

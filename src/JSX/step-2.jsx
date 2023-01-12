@@ -3,7 +3,7 @@ import Header from "./header";
 import Glayer from "./label";
 // import DeviceImage from "./page2";
 import "../style/step-2.css";
-
+import { createSearchParams, useNavigate, useSearchParams } from "react-router-dom";
 
 
 const DeviceImage = (props)=>
@@ -39,6 +39,67 @@ for (var i = 1; i <= 30; i++)
 
 const Step_2 = ()=>{
 
+    const [searchParams] = useSearchParams();
+    const navigate = useNavigate();
+
+    let data = JSON.parse(searchParams.get("data"));
+
+    console.log(data);
+
+    const Front = ()=>
+    {
+        
+        if(clickAll){
+            data["deviceType"] = "All";
+            data["deviceData"] = Data;
+
+            navigate({
+                pathname: "/step-3",
+                search: createSearchParams({
+                    data: JSON.stringify(data)
+                }).toString()
+            });
+        }
+        else if(clickAllm){
+            data["deviceType"] = "mobile";
+            data["deviceData"] = Data.filter((temp)=>{return temp.type === "mobile"});
+
+            navigate({
+                pathname: "/step-3",
+                search: createSearchParams({
+                    data: JSON.stringify(data)
+                }).toString()
+            });
+        }
+        else if(clickAlls)
+        {
+            data["deviceType"] = "stationary"
+            data["deviceData"] = Data.filter((temp)=>{return temp.type === "stationary"});
+
+            navigate({
+                pathname: "/step-3",
+                search: createSearchParams({
+                    data: JSON.stringify(data)
+                }).toString()
+            });
+        }
+        else 
+        {
+            alert("please Select one option to go another page");
+        }
+
+
+    }
+
+    const Back = () =>
+    {
+        navigate({
+            pathname:"/step-1"
+        })
+    }
+
+
+
     const [state, setState] = React.useState(false);
     const [clickAll, setCA] = React.useState(false);
 
@@ -52,7 +113,7 @@ const Step_2 = ()=>{
     return(<div>
         <Header/>
         <Glayer step = "Step 2" dis = ""prevPage="step-1" 
-        nextPage="step-3" text ="Select the Data Devices you need"/>
+        nextPage="step-3" backFunc = {Back} frontFunc={Front} text ="Select the Data Devices you need"/>
         '
         
         <div className="middle-part">
@@ -73,10 +134,10 @@ const Step_2 = ()=>{
 
               
                 {
-                    mstate || clickAllm? Data.map((user) =>(<DeviceImage bcolor={user.type ==="mobile"?"#323B4B":"#878787"} deivceId = {user.id} mobility = {user.type}/>)): 
-                    clickAlls || sState?  Data.map((user) =>(<DeviceImage bcolor={user.type ==="stationary"?"#323B4B":"#878787"} deivceId = {user.id} mobility = {user.type} />)):
-                    state|| clickAll? Data.map((user) =>(<DeviceImage bcolor={"#323B4B"} deivceId={user.id} mobility={user.type}/>)):
-                    Data.map((user)=>(<DeviceImage bcolor = {"#878787"} deivceId ={user.id} mobility = {user.type}/>))
+                    mstate || clickAllm? Data.map((user) =>(<DeviceImage key={user.id} bcolor={user.type ==="mobile"?"#323B4B":"#878787"} deivceId = {user.id} mobility = {user.type}/>)): 
+                    clickAlls || sState?  Data.map((user) =>(<DeviceImage key={user.id}  bcolor={user.type ==="stationary"?"#323B4B":"#878787"} deivceId = {user.id} mobility = {user.type} />)):
+                    state|| clickAll? Data.map((user) =>(<DeviceImage key={user.id} bcolor={"#323B4B"} deivceId={user.id} mobility={user.type}/>)):
+                    Data.map((user)=>(<DeviceImage key={user.id} bcolor = {"#878787"} deivceId ={user.id} mobility = {user.type}/>))
                     
                     
                 }

@@ -19,6 +19,8 @@
     background-color:  #E9E9E9;;
     margin-right: 2rem;
     border-radius: 5px;
+    /* cHECk HerRe To aDd oR rMoVE SomeThInG*/
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 
 }
 
@@ -26,7 +28,7 @@
     background-color:#F2FFA0;
     transition: 0.3s;
     cursor: pointer;
-
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card-contain{
