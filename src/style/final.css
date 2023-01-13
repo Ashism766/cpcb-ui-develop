@@ -90,3 +90,26 @@
     right: 35%;
     cursor: pointer;
 }
+
+div canvas {
+    height: 333px;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+.con{
+    height: 500px;
+    width: 500px;
+    background-color:gainsboro;
+    
+    position: absolute;
+
+    top: 3rem;
+    left: 12rem;
+
+
+
+}
