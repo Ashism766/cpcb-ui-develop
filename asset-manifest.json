@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/cpcb-ui-develop/static/css/main.98ae8ac3.css",
+    "main.js": "/cpcb-ui-develop/static/js/main.efbc4f0e.js",
+    "static/media/font-page.png": "/cpcb-ui-develop/static/media/font-page.da26c36b14a45fe108c0.png",
+    "static/media/down.riv": "/cpcb-ui-develop/static/media/down.e375641581c302c42499.riv",
+    "static/media/rocket_demo.riv": "/cpcb-ui-develop/static/media/rocket_demo.96b1ce2a1d1a7834237c.riv",
+    "index.html": "/cpcb-ui-develop/index.html",
+    "main.98ae8ac3.css.map": "/cpcb-ui-develop/static/css/main.98ae8ac3.css.map",
+    "main.efbc4f0e.js.map": "/cpcb-ui-develop/static/js/main.efbc4f0e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.98ae8ac3.css",
+    "static/js/main.efbc4f0e.js"
+  ]
+}
