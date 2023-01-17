@@ -80,6 +80,7 @@ body{
 .squar:hover{
     background-color: #323B4B;
     /* border: 3px solid #323B4B; */
+    opacity: 80%;
     transition: 0.3s;
     
 }

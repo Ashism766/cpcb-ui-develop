@@ -3,7 +3,7 @@ import Header from "./header";
 import Glayer from "./label";
 // import DatePick from "./page3";
 import "../style/step-3.css";
-import { createSearchParams, useNavigate, useLocation, json } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 
 
@@ -16,24 +16,30 @@ const Final = ()=>{
    
     const Location = useLocation();
 
-    let pData = JSON.parse(Location.state['data']);
-    console.log(pData);
+    let pData, bData;
+    try{pData = JSON.parse(Location.state['data']);
+    console.log(pData);}catch(error){console.log("Page 3: "+error);}
+    bData = pData;
+    
 
 
     const Front = () =>
     {
         if(fDate && tDate)
-        {
-            pData["fromDate"] = fDate;
-            pData["toDate"] = tDate;
+        {   
+            try{
+                pData["fromDate"] = fDate;
+                pData["toDate"] = tDate;
 
-            navigate("/step-4"  ,
-                {
-                    state:{
-                        data: JSON.stringify(pData)
+                navigate("/step-4"  ,
+                    {
+                        state:{
+                            data: JSON.stringify(pData)
+                        }
                     }
-                }
-            );
+                    );
+            }catch(error){console.log("page3: "+error);}
+            
         }
         else{
             alert("please select the from data and To Date")
@@ -41,8 +47,8 @@ const Final = ()=>{
     }
     const Back = () =>
     {
-        navigate ({
-            pathname:"/step-2"
+        navigate ("/step-2",{
+            state:{data:JSON.stringify(bData)}
         });
     }
 

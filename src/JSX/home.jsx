@@ -8,6 +8,8 @@ const Home=()=>{
     const [id, setId] = React.useState("");
     const [pass, setPass] = React.useState("");
     const [sub, checkSub] = React.useState(0);
+    // const [ucl, setUcl] = React.useState(false);
+    // const [pcl, setPcl] = React.useState(false);
 
     const navigate = useNavigate();
 
@@ -15,7 +17,16 @@ const Home=()=>{
 
 
         if( id === "Ashis" && pass === "0000"){checkSub(1);}
-        else{checkSub(-1)};
+        else{checkSub(-1);
+            document.getElementById('userId').value='';
+            document.getElementById('passWord').value ='';
+            // document.getElementsByTagName('label').color = "red";
+            setTimeout(()=>{
+                alert("Please Enter Valid username and password");
+            },500);
+            
+         }
+
         
     };
 
@@ -43,17 +54,17 @@ const Home=()=>{
                 <div className="form">
 
                     <div className="txt_field">
-                        <input type={"text"}  required onChange={(e)=>{setId(e.target.value); console.log(id);}}>
+                        <input id="userId" type={"text"}  required onChange={(e)=>{setId(e.target.value);}}>
                         </input>
                         <span></span>
                         
-                        <label>User id</label>
+                        <label style={{"color":sub===-1?"red":"white"}}>User id</label>
                        
                     </div>
                     <div className="txt_field">
-                        <input type={"password"} required onChange={(e)=>{setPass(e.target.value); console.log(pass);}}></input>
+                        <input id="passWord" type={"password"} required onChange={(e)=>{setPass(e.target.value);}}></input>
                         <span></span>
-                        <label>Password</label>
+                        <label style={{"color":sub===-1?"red":"white"}}>Password</label>
                     </div>
 
                     <div className="pass">Forgot Password ?</div>

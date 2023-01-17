@@ -2,84 +2,70 @@ import React from "react";
 import Header from "./header";
 import Glayer from "./label";
 import "../style/final.css";
+// import rive from "@rive-app/react-canvas";
+import { useRive} from "@rive-app/react-canvas";
+import { useNavigate,useLocation } from "react-router-dom";
 
-import Rive from "@rive-app/react-canvas";
-import {
-  useRive, useStateMachineInput
-} from "@rive-app/react-canvas";
-// import Anime from "../image/download.riv";
 
 
 const ApP = () =>{
 
-  const STATE_MACHINE_NAME = "State Machine";
-  const INPUT_NAME = "Downloading";
-  
   const [ani, setAni] = React.useState(false);
 
   const {rive, RiveComponent} = useRive({
-    src:'wb_download.riv',
-    stateMachines: STATE_MACHINE_NAME,
-    
+    src:'download.riv',
+    stateMachines: "State machine 1",
     autoplay: true,
   });
 
 
-  const func = () =>{
-    
- 
-  let inputs = rive.stateMachineInputs("State Machine");
-  const bumpTrigger = inputs.find(i => i.name === 'Start');
-  bumpTrigger.fire();
-  console.log(bumpTrigger);
+
+  const func = (i) =>{
+    let inputs = rive.stateMachineInputs("State machine 1");
+    const bumpTrigger = inputs.find(i => i.name === 'Downloading');
+    bumpTrigger.value = true;
     const ano = inputs.find(j =>j.name === "Progress");
-    ano.value += 10;
-    console.log(ano.value);
+    ano.value  += i;;
 
-}
-  
-
-
+    }
+    //DEMO purpose code
     if(ani)
     {
-      console.log("it's True");
-      func();
+      setInterval(() => {
+        func(5)
+      }, 2000);
     }
 
     return (
           
-          ani?<div style={{ height: '600px', width: '700px' }}>
-           <RiveComponent onClick={()=>{setAni(!ani)}}/></div>:
-           <div style={{ height: '500px', width: '500px' }}>
-           <RiveComponent onClick={()=>{setAni(!ani)}}/></div>
-
-
+          <div style={{ height: '370px', width: '370px' }}>
+          <RiveComponent onClick={()=>{setAni(true)}}/>
+          </div>
     );
 }
 
 
-const final = (props)=>{
+const Final = (props)=>{
+
+    const Location = useLocation();
+    const navigate = useNavigate();
+    try{
+      let pData = JSON.parse(Location.state['data']);
+      console.log(pData);
+    }
+    catch(e)
+    {
+      console.log("\tpage final: \n"+e);
+    }
 
     return (<div>
         <Header/>
         <Glayer step ="" dis="none" dis2="none" prevPage="step-4" nextPage=""text="Data invoice" />
 
-
-
-        
-
        <div className="flex-container">
         <div className="con">
-
             <ApP/>
-
-          {/* <Rive src="download.riv" animations={"Water"}  /> */}
-
-
         </div>
-
-
-
 
         <div className="invoice">
             <h1>Data invoice</h1>
@@ -110,4 +96,4 @@ const final = (props)=>{
     </div>)
 }
 
-export default final;
+export default Final;

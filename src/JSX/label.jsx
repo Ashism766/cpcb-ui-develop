@@ -10,11 +10,11 @@ const gLayer = (props)=>{
 
         <div className="footer">
             <div className="inside-div">
-                <div onClick={props.backFunc}  style={{"display":props.dis}} className="back uLine" id="Back-btn" >
+                <div onClick={props.backFunc}  style={{"display":props.dis, "color":props.bColor}} className="back uLine" id="Back-btn" >
 
                     Back
                 </div>
-                <div  onClick={props.frontFunc}  style={{"display":props.dis2}} className="continue uLine">
+                <div  onClick={props.frontFunc}  style={{"display":props.dis2, "backgroundColor": props.bColor, "color":props.Color, "boxShadow":props.boxShadow}} className="continue uLine">
                    Continue
                 </div>
             </div>

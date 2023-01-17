@@ -9,10 +9,13 @@ const Final = ()=>{
     const navigate = useNavigate();
 
     let Location = useLocation();
+    let pData, bData;
 
-    let pData = JSON.parse(Location.state['data']);
-
-    console.log(pData);
+    try{
+        pData = JSON.parse(Location.state['data']);
+        console.log(pData);
+    }catch(error){console.log("page 4 \n"+error);}
+    bData = pData;
 
     const [Json, setJson] = React.useState(false);
     const [Csv, setCsv] = React.useState(false);
@@ -22,16 +25,18 @@ const Final = ()=>{
     const Front = ()=>
     {
         if(json || csv)
-        {
-            pData["fileType"] = Json?"json":"csv";
+        {   
+            try{
+                pData["fileType"] = Json?"json":"csv";
 
-            navigate("/step-5",
-                {
-                state:
-                    {
+            navigate("/step-5",{
+                state:{
                         data: JSON.stringify(pData)
                     }
-            });
+                    });
+            }
+            catch(error){console.log("page 4 [+]\n"+error);}
+           
         }
         else{
             alert("please select downloaded file type");
@@ -40,8 +45,10 @@ const Final = ()=>{
     }
     const Back = () =>
     {
-        navigate({
-            pathname:"/step-3"
+        navigate("/step-3",{
+            state:{
+                data: JSON.stringify(bData)
+            }
         });
     }
 

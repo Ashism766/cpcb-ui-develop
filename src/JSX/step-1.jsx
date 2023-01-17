@@ -1,9 +1,10 @@
 import React from "react";
 import Header from "./header";
-import Glayer from "./label";
+
 import "../style/step-1.css";
+import Glayer from "./label";
 // import Middle from "./data-source-card";
-import { useLocation, useNavigate , Navigate} from "react-router-dom";
+import {  useNavigate} from "react-router-dom";
 
 
 
@@ -61,12 +62,13 @@ const Step_1 = ()=>{
         
     };
 
+    var shadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
 
     return <div>
         
         <Header/>
-        <Glayer step = "Step 1" dis = "none" prevPage ="" 
-            nextPage="step-2" frontFunc={Front}  text ="Select a Data Source"/>
+        <Glayer onClick={()=>{alert("element got clicked")}} step = "Step 1" dis = "none" nextPage="step-2" frontFunc={Front}  text ="Select a Data Source"/>
+            
 
 
         <div className="body-contain">

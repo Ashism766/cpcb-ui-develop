@@ -7,7 +7,7 @@ body{
 
 .left-side{
     background-color: #323B4B;
-    height: 100vh;
+    height: 110vh;
     width: 50%;;
     position: relative;
     display: inline-block;
@@ -79,6 +79,13 @@ body{
     background: none;
     outline: none;
 }
+input, select, textarea{
+    color: #ffffff;
+    /* padding-left: 1rem; */
+}
+textarea:focus, input:focus{
+    color: #ffffff;;
+}
 
 .txt_field label {
     position: absolute;
@@ -89,6 +96,7 @@ body{
     font-size: 16px;
     pointer-events: none;
     transition: 0.3s;
+    /* padding-left: .3rem; */
 }
 
 .txt_field span::before{

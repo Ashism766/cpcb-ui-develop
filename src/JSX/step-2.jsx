@@ -3,7 +3,7 @@ import Header from "./header";
 import Glayer from "./label";
 // import DeviceImage from "./page2";
 import "../style/step-2.css";
-import { createSearchParams, useNavigate, useLocation} from "react-router-dom";
+import { useNavigate, useLocation} from "react-router-dom";
 
 
 const DeviceImage = (props)=>
@@ -44,31 +44,35 @@ const Step_2 = ()=>{
 
     const Location = useLocation();
 
-    console.log(Location.state['data'])
+    let data, bData;
+    try{console.log(Location.state['data'])
+    data = JSON.parse(Location.state['data']);
+    console.log(data);}
+    catch(error){console.log("page2: "+error);}
     
-
-
-    let data = JSON.parse(Location.state['data']);
-
-    console.log(data);
+    bData = data;
 
     const Front = ()=>
     {
         
         if(clickAll){
-            data["deviceType"] = "All";
-            data["deviceData"] = Data;
+            try{
+                    data["deviceType"] = "All";
+                data["deviceData"] = Data;
 
-            navigate(
-               "/step-3",
-                {
-                state: {
-                    data: JSON.stringify(data)
-                }
-            });
+                navigate(
+                "/step-3",
+                    {
+                    state: {
+                        data: JSON.stringify(data)
+                    }
+                });
+            }
+            catch(error){console.log("page2"+error);}
+            
         }
         else if(clickAllm){
-            data["deviceType"] = "mobile";
+            try{data["deviceType"] = "mobile";
             data["deviceData"] = Data.filter((temp)=>{return temp.type === "mobile"});
 
             navigate(
@@ -78,10 +82,12 @@ const Step_2 = ()=>{
                      data: JSON.stringify(data)
                  }
              });
+            }catch(error){console.log(error);}
+            
         }
         else if(clickAlls)
         {
-            data["deviceType"] = "stationary"
+            try{ data["deviceType"] = "stationary"
             data["deviceData"] = Data.filter((temp)=>{return temp.type === "stationary"});
 
             navigate(
@@ -95,7 +101,9 @@ const Step_2 = ()=>{
                      data: JSON.stringify(data)
                  }
              }
-             );
+             );}
+             catch(error){console.log(error);}
+           
         }
         else 
         {
@@ -107,8 +115,10 @@ const Step_2 = ()=>{
 
     const Back = () =>
     {
-        navigate({
-            pathname:"/step-1"
+        navigate("/step-1",{
+            state:{
+                data:JSON.stringify(bData)
+            }
         })
     }
 

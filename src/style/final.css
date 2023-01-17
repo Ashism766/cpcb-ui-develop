@@ -103,12 +103,12 @@ div canvas {
 .con{
     height: 500px;
     width: 500px;
-    background-color:gainsboro;
+    /* background-color:gainsboro; */
     
     position: absolute;
 
     top: 3rem;
-    left: 12rem;
+    left: 9rem;
 
 
 
