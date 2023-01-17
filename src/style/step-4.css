@@ -22,12 +22,15 @@
     cursor: pointer;
 }
 
-.csv-body:hover, .json-body:hover{
+.csv-body:hover, .json-body:hover {
+    color: white;
+    transition: .5s;
     background-color: #323B48;
 }
 
+
 .csv-body img, .json-body img{
-    padding-top: 30px;
+    padding-top: 1.9rem;
     width: 40px;
     height: 40px;
     position: absolute;
@@ -42,3 +45,9 @@
     top: 1.5rem;
 
 }
+
+.data-format-body .json-body, .data-format-body .csv-body{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+

@@ -47,6 +47,8 @@
     padding: 7px 20px 7px 20px;
     border-radius: 8px;
     cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   
 }
 .footer .continue
 {
@@ -57,10 +59,21 @@
     padding: 7px 20px 7px 20px;
     border-radius: 8px;
     cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   
     
     
 }
 .uLine{
     text-decoration: none;
     color: black;
+}
+
+.footer .continue:hover{
+    background-color: white;
+    border: 2px solid #B5FFB4;;
+}
+.footer .back:hover{
+    background-color: white;
+    border: 2px solid #616161;
 }
