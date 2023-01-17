@@ -13,6 +13,9 @@
     padding-right: 2rem;
     border-radius: 8px;
 }
+.date-picker input, select, textarea{
+    color: black;
+}
 .date-picker h1{
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
