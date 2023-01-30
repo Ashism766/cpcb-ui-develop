@@ -8,9 +8,27 @@
 .select{
     
     position: absolute;
-    
-    left: 26rem;
+    /* width: 100%; */
+    right:  7rem;
     top: 1.5rem;
+    z-index: 10;
+}
+
+.dropdown-container{
+    display: inline-block;
+    /* width: 50px; */
+    margin-right: 4rem;
+    z-index: 10;
+}
+Select{
+    display: inline-block;
+}
+.search-box{
+    display: inline-block;
+    width: 350px;
+    margin-right: 4rem;
+    
+    
 }
 .select .device-type{
     display: inline-block;

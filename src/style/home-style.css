@@ -81,7 +81,7 @@ body{
 }
 input, select, textarea{
     color: #ffffff;
-    /* padding-left: 1rem; */
+    
 }
 textarea:focus, input:focus{
     color: #ffffff;;
@@ -91,7 +91,7 @@ textarea:focus, input:focus{
     position: absolute;
     top: 50%;
     left: 5px;
-    color: #ffffff;
+    /* color: #ffffff; */
     transform: translateY(-50%);
     font-size: 16px;
     pointer-events: none;

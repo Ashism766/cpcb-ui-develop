@@ -4,7 +4,7 @@ import Glayer from "./label";
 // import DeviceImage from "./page2";
 import "../style/step-2.css";
 import { useNavigate, useLocation} from "react-router-dom";
-
+import Select from "react-select";
 
 const DeviceImage = (props)=>
 {
@@ -19,21 +19,25 @@ const DeviceImage = (props)=>
 }
 
 
-let Data = [];
-let Mobility = ["mobile", "stationary"]
-for (var i = 1; i <= 30; i++)
-{
-    var ran = Math.floor(Math.random()*2);
+
+// let Mobility = ["mobile", "stationary"]
+// for (var i = 1; i <= 30; i++)
+// {
+//     var ran = Math.floor(Math.random()*2);
 
     
-    var temp = {
-        id:"M"+i,
-        type: Mobility[ran]
-    }
+//     var temp = {
+//         id:"M"+i,
+//         type: Mobility[ran]
+//     }
 
-    Data.push(temp);
+//     Data.push(temp);
 
-}
+// }
+const Data = [
+    's1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13','s14','s15','s16','s17','s18','m1','m2','m3','m4','m5','m6','m7'
+]
+
 
 
 
@@ -43,6 +47,16 @@ const Step_2 = ()=>{
     const navigate = useNavigate();
 
     const Location = useLocation();
+    const [state, setState] = React.useState(false);
+    const [clickAll, setCA] = React.useState(false);
+
+    const [mstate, setMstate] = React.useState(false);
+    const [clickAllm, setCAM] = React.useState(false);
+    
+    const [sState, setSstate] = React.useState(false);
+    const [clickAlls, setCAS] = React.useState(false);
+    const [selectedOptions, setSelectedOptions] = React.useState();
+    // var selectedList = [];
 
     let data, bData;
     try{console.log(Location.state['data'])
@@ -57,8 +71,8 @@ const Step_2 = ()=>{
         
         if(clickAll){
             try{
-                    data["deviceType"] = "All";
-                data["deviceData"] = Data;
+                
+                data["DeviceIds"] = Data;
 
                 navigate(
                 "/step-3",
@@ -72,8 +86,8 @@ const Step_2 = ()=>{
             
         }
         else if(clickAllm){
-            try{data["deviceType"] = "mobile";
-            data["deviceData"] = Data.filter((temp)=>{return temp.type === "mobile"});
+            try{
+            data["DeviceIds"] = Data.filter((temp)=>{return temp[0] === "m"});
 
             navigate(
                 "/step-3",
@@ -87,8 +101,8 @@ const Step_2 = ()=>{
         }
         else if(clickAlls)
         {
-            try{ data["deviceType"] = "stationary"
-            data["deviceData"] = Data.filter((temp)=>{return temp.type === "stationary"});
+            try{
+            data["DeviceIds"] = Data.filter((temp)=>{return temp[0] === "s"});
 
             navigate(
                 {
@@ -104,6 +118,25 @@ const Step_2 = ()=>{
              );}
              catch(error){console.log(error);}
            
+        }
+        else if(selectedOptions.length > 0)
+        {
+            let x = selectedOptions;
+
+            let Ids = [];
+            x.map((item)=>{Ids.push(item.label)});
+
+            data['DeviceIds'] = Ids;
+
+            navigate({
+                    pathname: "/step-3"
+                },
+                {
+                    state: {
+                        data: JSON.stringify(data)
+                    }
+                }
+            )
         }
         else 
         {
@@ -124,15 +157,36 @@ const Step_2 = ()=>{
 
 
 
-    const [state, setState] = React.useState(false);
-    const [clickAll, setCA] = React.useState(false);
 
-    const [mstate, setMstate] = React.useState(false);
-    const [clickAllm, setCAM] = React.useState(false);
     
-    const [sState, setSstate] = React.useState(false);
-    const [clickAlls, setCAS] = React.useState(false);
-    
+    const optionList = [
+        {value:'M1', label:'m1'},
+        {value:'M2', label:'m2'},
+        {value:'M3', label:'m3'},
+        {value:'M4', label:'m4'},
+        {value:'M5', label:'m5'},
+        {value:'M6', label:'m6'},
+        {value:'M7', label:'m7'},
+        {value:'M8', label:'m8'},
+        {value:'M9', label:'m9'},
+        {value:'M10', label:'m10'},
+        {value:'M11', label:'m11'},
+        {value:'M12', label:'m12'},
+        {value:'M13', label:'m13'},
+        {value:'M14', label:'m14'},
+        {value:'M15', label:'m15'},
+        {value:'M16', label:'m16'},
+        {value:'M17', label:'m17'},
+        {value:'M18', label:'m18'},
+        {value:'S1', label:'s1'},
+        {value:'S2', label:'s2'},
+        {value:'S3', label:'s3'},
+        {value:'S4', label:'s4'},
+        {value:'S5', label:'s5'},
+        {value:'S6', label:'s6'},
+        {value:'S7', label:'s7'},
+
+    ]
 
     return(<div>
         <Header/>
@@ -143,25 +197,40 @@ const Step_2 = ()=>{
         <div className="middle-part">
 
             <div className="select">
+
+
+                
+                    <div className="dropdown-container">
+                        <Select className="search-box" options={optionList}
+                            placeholder = "Select Device"
+                            value={selectedOptions}
+                            onChange={(data)=>{setSelectedOptions(data);  setCA(false); setCAM(false); setCAS(false);}}
+                            isSearchable = {true}
+                            isMulti = {true}
+
+                        />
+
+                    </div>
+
+                
+
                 <div style={{"backgroundColor":clickAll&&!(clickAllm || clickAlls)?"#F2FFA0":""}} onMouseOver={()=>{setState(true)}} onMouseOut={()=>{setState(false)}} onClick={()=>{ if(!clickAll){setCAM(false); setCAS(false)} setCA(!clickAll)}} className="device-type all-d">
-                    Select all devices
-                </div>
+                    Select all devices  </div>
                 <div style={{"backgroundColor":clickAllm?"#F2FFA0":""}} onClick={()=>{if(!clickAllm){setCA(false); setCAS(false)}setCAM(!clickAllm); ;}} onMouseOver={()=>{setMstate(true)}} onMouseOut={()=>{setMstate(false)}} className="device-type mobile-d">
-                    Select all Mobile 
-                </div>
+                    Select all Mobile </div>
                 <div style={{"backgroundColor":clickAlls?"#F2FFA0":""}} onClick={()=>{if(!clickAlls){setCA(false); setCAM(false)} setCAS(!clickAlls)}} onMouseOver={()=>{setSstate(true)}} onMouseOut={()=>{setSstate(false)}} className="device-type stationary-d">
-                    Select all Stationary
-                </div>
+                    Select all Stationary </div>
             </div>
 
             <div className="card-contain">
 
               
                 {
-                    mstate || clickAllm? Data.map((user) =>(<DeviceImage key={user.id} bcolor={user.type ==="mobile"?"#323B4B":"#878787"} deivceId = {user.id} mobility = {user.type}/>)): 
-                    clickAlls || sState?  Data.map((user) =>(<DeviceImage key={user.id}  bcolor={user.type ==="stationary"?"#323B4B":"#878787"} deivceId = {user.id} mobility = {user.type} />)):
-                    state|| clickAll? Data.map((user) =>(<DeviceImage key={user.id} bcolor={"#323B4B"} deivceId={user.id} mobility={user.type}/>)):
-                    Data.map((user)=>(<DeviceImage key={user.id} bcolor = {"#878787"} deivceId ={user.id} mobility = {user.type}/>))
+                    selectedOptions != null && selectedOptions.length > 0? Data.map((user) =>(<DeviceImage key={user} bcolor={selectedOptions.find((item)=>{return item.label === user}) != null?"#323B4B":"#878787"} deivceId = {user} mobility = {user[0]}/>)): 
+                    mstate || clickAllm? Data.map((user) =>(<DeviceImage key={user} bcolor={user[0] ==="m"?"#323B4B":"#878787"} deivceId = {user} mobility = {user[0]}/>)): 
+                    clickAlls || sState?  Data.map((user) =>(<DeviceImage key={user}  bcolor={user[0] ==="s"?"#323B4B":"#878787"} deivceId = {user} mobility = {user[0]} />)):
+                    state|| clickAll? Data.map((user) =>(<DeviceImage key={user} bcolor={"#323B4B"} deivceId={user} mobility={user[0]}/>)):
+                    Data.map((user)=>(<DeviceImage key={user} bcolor = {"#878787"} deivceId ={user} mobility = {user[0]}/>))
                     
                     
                 }
