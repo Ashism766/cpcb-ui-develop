@@ -20,20 +20,7 @@ const DeviceImage = (props)=>
 
 
 
-// let Mobility = ["mobile", "stationary"]
-// for (var i = 1; i <= 30; i++)
-// {
-//     var ran = Math.floor(Math.random()*2);
 
-    
-//     var temp = {
-//         id:"M"+i,
-//         type: Mobility[ran]
-//     }
-
-//     Data.push(temp);
-
-// }
 const Data = [
     's1','s2','s3','s4','s5','s6','s7','s8','s9','s10','s11','s12','s13','s14','s15','s16','s17','s18','m1','m2','m3','m4','m5','m6','m7'
 ]
@@ -124,7 +111,7 @@ const Step_2 = ()=>{
             let x = selectedOptions;
 
             let Ids = [];
-            x.map((item)=>{Ids.push(item.label)});
+            x.map((item)=>{Ids.push(item.label); return 0;});
 
             data['DeviceIds'] = Ids;
 
@@ -155,36 +142,13 @@ const Step_2 = ()=>{
         })
     }
 
-
-
-
-    
+ 
     const optionList = [
-        {value:'M1', label:'m1'},
-        {value:'M2', label:'m2'},
-        {value:'M3', label:'m3'},
-        {value:'M4', label:'m4'},
-        {value:'M5', label:'m5'},
-        {value:'M6', label:'m6'},
-        {value:'M7', label:'m7'},
-        {value:'M8', label:'m8'},
-        {value:'M9', label:'m9'},
-        {value:'M10', label:'m10'},
-        {value:'M11', label:'m11'},
-        {value:'M12', label:'m12'},
-        {value:'M13', label:'m13'},
-        {value:'M14', label:'m14'},
-        {value:'M15', label:'m15'},
-        {value:'M16', label:'m16'},
-        {value:'M17', label:'m17'},
-        {value:'M18', label:'m18'},
-        {value:'S1', label:'s1'},
-        {value:'S2', label:'s2'},
-        {value:'S3', label:'s3'},
-        {value:'S4', label:'s4'},
-        {value:'S5', label:'s5'},
-        {value:'S6', label:'s6'},
-        {value:'S7', label:'s7'},
+        {value:'M1', label:'m1'},{value:'M2', label:'m2'}, {value:'M3', label:'m3'}, {value:'M4', label:'m4'}, {value:'M5', label:'m5'},
+        {value:'M6', label:'m6'},{value:'M7', label:'m7'}, {value:'S1', label:'s1'},{value:'S2', label:'s2'},{value:'S3', label:'s3'},
+        {value:'S4', label:'s4'},{value:'S5', label:'s5'},{value:'S6', label:'s6'},{value:'S7', label:'s7'},{value:'S8', label:'s8'},
+        {value:'S9', label:'s9'},{value:'S10', label:'s10'},{value:'S11', label:'s11'},{value:'S12', label:'s12'},{value:'S13', label:'s13'},
+        {value:'S14', label:'s14'},{value:'S15', label:'s15'},{value:'S16', label:'s16'},{value:'S17', label:'s17'}, {value:'S18', label:'s18'},
 
     ]
 
