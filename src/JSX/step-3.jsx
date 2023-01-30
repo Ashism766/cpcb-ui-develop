@@ -47,7 +47,7 @@ const Final = ()=>{
     }
     const Back = () =>
     {
-        navigate ("/step-2",{
+        navigate ("/sensor",{
             state:{data:JSON.stringify(bData)}
         });
     }
@@ -59,8 +59,8 @@ const Final = ()=>{
 
 return (<div>
     <Header/>
-    <Glayer step ="Step 3" dis="" prevPage="step-2" 
-    nextPage="step-4"text="Select the From and To Date" frontFunc={Front} backFunc={Back}/>
+    <Glayer step ="Step 4" dis="" prevPage="step-2" 
+    nextPage="sensor"text="Select the From and To Date" frontFunc={Front} backFunc={Back}/>
 
     <div className="Date-contain">
         <div className="f-date "><div className="date-picker"><h1>From Date</h1>

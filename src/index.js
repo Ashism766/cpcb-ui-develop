@@ -5,6 +5,7 @@ import FirstPage from "./JSX/step-1";
 import SecondPage from "./JSX/step-2";
 import ThirdPage from "./JSX/step-3";
 import FourthPage from "./JSX/step-4";
+import SensorPage from "./JSX/sensor";
 import FinalPage from "./JSX/final";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 
@@ -21,6 +22,7 @@ ReactDOM.render(
             <Route index element={<Home/>}></Route>
             <Route path="/step-1" element ={<FirstPage/>}></Route>
             <Route path="/step-2" element={<SecondPage/>}></Route>
+            <Route path="sensor" element ={<SensorPage/>}></Route>
             <Route path="/step-3" element={<ThirdPage/>}></Route>
             <Route path="/step-4" element={<FourthPage/>}></Route>
             <Route path="/step-5" element={<FinalPage/>}></Route>

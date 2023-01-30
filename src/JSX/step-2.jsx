@@ -62,7 +62,7 @@ const Step_2 = ()=>{
                 data["DeviceIds"] = Data;
 
                 navigate(
-                "/step-3",
+                "/sensor",
                     {
                     state: {
                         data: JSON.stringify(data)
@@ -77,7 +77,7 @@ const Step_2 = ()=>{
             data["DeviceIds"] = Data.filter((temp)=>{return temp[0] === "m"});
 
             navigate(
-                "/step-3",
+                "/sensor",
                  {
                  state: {
                      data: JSON.stringify(data)
@@ -93,7 +93,7 @@ const Step_2 = ()=>{
 
             navigate(
                 {
-                    pathname: "/step-3"
+                    pathname: "/sensor"
 
                 }
                ,
@@ -116,7 +116,7 @@ const Step_2 = ()=>{
             data['DeviceIds'] = Ids;
 
             navigate({
-                    pathname: "/step-3"
+                    pathname: "/sensor"
                 },
                 {
                     state: {
@@ -155,7 +155,7 @@ const Step_2 = ()=>{
     return(<div>
         <Header/>
         <Glayer step = "Step 2" dis = ""prevPage="step-1" 
-        nextPage="step-3" backFunc = {Back} frontFunc={Front} text ="Select the Data Devices you need"/>
+        nextPage="sensor" backFunc = {Back} frontFunc={Front} text ="Select the Data Devices you need"/>
         '
         
         <div className="middle-part">

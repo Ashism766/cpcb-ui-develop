@@ -1,0 +1,105 @@
+.body-contain{
+    display: block;
+    position: relative;
+    top: 3rem;
+}
+
+.main-body{
+    display: block;
+    background-color: #F1F6FF;;
+    
+    position: absolute;
+    left: 12rem;
+    padding: 2.5rem 4rem;
+    border-radius: 10px;
+
+}
+
+
+body{
+    color: black;
+}
+.squar{
+    background-color:white;
+    display: inline-block;
+    height: 16rem;
+    width: 13rem;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    background-color: white;;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+.squar .small-circle{
+    display: inline-block;
+    position: absolute;
+    background-color: white;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;;
+    right: 1rem;
+    top:1rem
+
+}
+.squar .icon{
+    display: inline-block;
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: 3.3rem;
+    left: 3.5rem;
+    background-color: aliceblue;
+   
+}
+
+/* .squar.icon:hover{
+    
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    background-color: black;
+} */
+.squar .text{
+    color: black;
+    font-weight: 540;
+    font-size: 1.1rem;
+    font-family: sans-serif;
+    display: inline-block;
+    position: absolute;
+    bottom: 2rem;
+    right: 1rem;
+    left: 1rem;
+    text-align: center;
+    /* padding-right: 2rem; */
+}
+.squar:hover{
+    background-color: #323B4B;
+    /* border: 3px solid #323B4B; */
+    opacity: 80%;
+    transition: 0.3s;
+    
+}
+
+.squar:hover .text{
+    color: white;
+}
+.squar .icon img{
+    width: 60px;
+    position: relative;
+    left: 1.2rem;
+    top: 1.1rem;
+}
+.squar:hover .icon img{
+    width: 75px;
+    left: .8rem;
+    top: .8rem;
+}
+
+.main-body .dis {
+    display: inline-block;
+}
